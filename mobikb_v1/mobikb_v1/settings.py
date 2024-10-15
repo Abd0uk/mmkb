@@ -33,8 +33,10 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #internal apps
     'core', # for home / templates base / registration / login
+    'providers',
     
     #external apps
+    'django_countries',
 
     
     #built-in apps
@@ -131,5 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # login view settings
 LOGIN_REDIRECT_URL = 'home'  # After successful login
-LOGOUT_REDIRECT_URL = 'login'  # After logout
+LOGOUT_REDIRECT_URL = 'core:login'  # After logout
 
