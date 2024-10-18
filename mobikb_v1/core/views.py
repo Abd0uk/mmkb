@@ -1,23 +1,36 @@
-from django.shortcuts import render
-from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 def home(request):
-    return render(request, 'home.html')  # Make sure to create 'home.html' template
+    return render(request, 'home.html')
 
 
-class CustomLoginView(LoginView):
-    template_name = 'login.html'  # Path to your login template
-    redirect_authenticated_user = True  # Redirect if user is already authenticated
-    next_page = reverse_lazy('core:home')  # Redirect to this URL after login (change 'home' to your desired view)
+def login_user(request):
+    # check if the user is logging in
+    if request.method == 'POST':
+        # Safely get username and password
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if username and password:  # Ensure both fields are provided
+            # authenticate
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'You have been logged in!')
+                return redirect('core:home')
+            else:
+                messages.error(request, 'Invalid username or password. Please try again.') 
+        else:
+            messages.error(request, 'Both username and password are required.')
+
+        return redirect('home')
     
-    # Optional: You can add extra context or modify the behavior here
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Login'  # Example of passing extra context to the template
-        return context
+    return render(request, 'login.html', {})
 
 
-
-
+def logout_user(request):
+    logout(request)
+    messages.success(request, "you have been logged out")
+    return redirect('core:home')

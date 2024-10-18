@@ -15,6 +15,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    {% if user.is_authenticated %}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -85,5 +86,17 @@
         <button type="submit" class="btn btn-dark">Logout</button>
       </form>
     </div>
+    {% else %}
+    <div>
+      <button class="btn btn-dark">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          href="{% url 'core:login' %}"
+          >Login</a
+        >
+      </button>
+    </div>
+    {% endif %}
   </div>
 </nav>

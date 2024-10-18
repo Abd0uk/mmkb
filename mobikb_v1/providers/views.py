@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import Operator, CountryData
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def opeartors(request):
     return render(request, 'opeartors.html', {'Operators': Operator.objects.all()})
 
-
+@login_required
 def operator_detail(request, pk):
     operator_instance = get_object_or_404(Operator, id=pk)
     country_data = CountryData.objects.filter(operator=operator_instance)
