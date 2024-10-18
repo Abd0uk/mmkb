@@ -124,7 +124,8 @@
 
     <!-- Country Data Display -->
     <div class="col-md-8">
-      <div class="card bg-light p-3" id="countryDetails" style="display: none">
+      <!-- can be added below style="display: none" -->
+      <div class="card bg-light p-3" id="countryDetails">
         <h5>Country Details</h5>
         <div id="detailsContent"></div>
       </div>
@@ -229,7 +230,7 @@
       const operatorId = "{{ operator.id }}";
 
       if (countryCode) {
-        fetch(`/get-country-data/${operatorId}/${countryCode}/`)
+        fetch(`get-country-data/${operatorId}/${countryCode}/`)
           .then((response) => response.json())
           .then((data) => {
             if (data) {

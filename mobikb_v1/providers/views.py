@@ -7,12 +7,6 @@ def opeartors(request):
     return render(request, 'opeartors.html', {'Operators': Operator.objects.all()})
 
 
-# def operator_detail(request, pk):
-#     operator_instance = Operator.objects.get(id=pk)
-#     return render(request, 'operator_detail.html', {
-#         'operator': operator_instance
-#     })
-
 def operator_detail(request, pk):
     operator_instance = get_object_or_404(Operator, id=pk)
     country_data = CountryData.objects.filter(operator=operator_instance)
