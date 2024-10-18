@@ -25,7 +25,7 @@ def login_user(request):
         else:
             messages.error(request, 'Both username and password are required.')
 
-        return redirect('home')
+        return redirect('core:login')
     
     return render(request, 'login.html', {})
 
@@ -33,4 +33,4 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, "you have been logged out")
-    return redirect('core:home')
+    return redirect('core:login')
