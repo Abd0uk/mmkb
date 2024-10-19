@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #internal apps
     'core', # for home / templates base / registration / login
-    'providers',
+    'providers', # for the operator kb
+    'shiftlog', # for the shift transfer and handovers
     
     #external apps
     'django_countries',

@@ -27,15 +27,18 @@
           >
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'shiftlog:home' %}">ShiftLog</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'providers:operators' %}"
             >Operators</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Articles(KB)</a>
+          <a class="nav-link disabled" href="#">Base</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Agent Help (Guided Articles)</a>
+          <a class="nav-link disabled" href="#">Assistant</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -80,6 +83,12 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
+
+    <p>--</p>
+    <div>
+      <button class="btn btn-success">Profile</button>
+    </div>
+    <p>--</p>
     <div>
       <form method="post" action="{% url 'core:logout' %}">
         {% csrf_token %}
