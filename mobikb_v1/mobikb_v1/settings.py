@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     #internal apps
     'core', # for home / templates base / registration / login
     'providers', # for the operator kb
-    'shiftlog', # for the shift transfer and handovers
+    'shiftlog', # for the shift transfer and hand-overs
+    'assistant', # for kb_wizard
     
     #external apps
     'django_countries',

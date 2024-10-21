@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('core.urls')),
     path('operators/', include('providers.urls')),
     path('shiftlog/', include('shiftlog.urls')),
+    path('assistant', include('assistant.urls'))
 ]
