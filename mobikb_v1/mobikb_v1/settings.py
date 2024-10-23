@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     
     #external apps
     'django_countries',
+    'ckeditor',
 
     
     #built-in apps
