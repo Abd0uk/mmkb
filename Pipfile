@@ -8,6 +8,7 @@ django = "*"
 django-registration = "*"
 django-countries = "*"
 django-ckeditor = "*"
+gunicorn = "*"
 
 [dev-packages]
 
