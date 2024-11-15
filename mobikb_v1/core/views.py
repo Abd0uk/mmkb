@@ -34,3 +34,17 @@ def logout_user(request):
     logout(request)
     messages.success(request, "You have been logged out!")
     return redirect('core:login')
+
+
+def profile(request):
+    response_count = 0  # Default value
+
+    if request.method == "POST":
+        response_count = int(request.POST.get("responses", 0))
+
+    return render(request, "profile.html", {
+        "response_count": response_count
+    })
+    
+def kbase(request):
+    return render(request, 'kbase.html')

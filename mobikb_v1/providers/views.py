@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Operator, CountryData
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from .forms import OperatorForm
 
 @login_required
 def opeartors(request):
@@ -30,3 +31,12 @@ def get_country_data(request, operator_id, country_code):
         return JsonResponse(data)
     except CountryData.DoesNotExist:
         return JsonResponse({}, status=404)
+    
+    
+# def createOperatorView(request):
+#     form = OperatorForm
+#     if request.method == "POST":
+#         form = OperatorForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("providers:operators")

@@ -35,7 +35,7 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Base</a>
+          <a class="nav-link" href="{% url 'core:kbase' %}">Base</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'assistant:topics' %}">Assistant</a>
@@ -70,6 +70,14 @@
                 >MM-Check Usage</a
               >
             </li>
+            <li>
+              <a
+                class="dropdown-item"
+                target="_blank"
+                href="https://status.esim-go.com/"
+                >eSIMGo Status Page</a
+              >
+            </li>
           </ul>
         </li>
       </ul>
@@ -86,7 +94,9 @@
 
     <p>--</p>
     <div>
-      <button class="btn btn-success">Profile</button>
+      <a href="{% url 'core:profile' %}"
+        ><button class="btn btn-success">Profile</button></a
+      >
     </div>
     <p>--</p>
     <div>

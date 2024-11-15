@@ -4,6 +4,9 @@ from . import views
 
 app_name = 'providers'
 
+
+# temp = 'providers:operators'
+
 urlpatterns = [
     path('', views.opeartors, name='operators'),
     path('<int:pk>', views.operator_detail, name = 'operator_detail'),

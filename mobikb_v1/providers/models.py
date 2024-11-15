@@ -4,20 +4,31 @@ from django_countries.fields import CountryField
 
 class Operator(models.Model):
     operator_name = models.CharField(max_length=64)
+    
+    contact_list = models.TextField(max_length=500, default='n/a')
+    contact_notes = models.CharField(max_length=1000, default='n/a')
+    
+    phone_no = models.CharField(max_length=255, default='n/a')
+    call_min = models.CharField(max_length=500, default='n/a')
+    topup_eligibility = models.CharField(max_length=500) # link to topup
+    
     provider_name = models.CharField(max_length=124)
     apn = models.CharField(max_length=64)
     iccid = models.CharField(max_length=100)
 
     check_usage = models.CharField(max_length=200, default='n/a')
-    ip_breakout = models.CharField(max_length=100, default='n/a') # needs to be added
-    topup_eligibility = models.CharField(max_length=500) # link to topup
     esim_status = models.CharField(max_length=255, default='n/a')
+    ip_breakout = models.CharField(max_length=100, default='n/a') # needs to be added
     
 
     activation = models.CharField(max_length=1000, default='n/a')
-    replacement = models.CharField(max_length=1000, default='n/a')
-    cancellation = models.CharField(max_length=1000, default='n/a')
     pkg_change = models.CharField(max_length=1000, default='n/a')
+    esim_replacement = models.CharField(max_length=1000, default='n/a')
+    
+    cancellation = models.CharField(max_length=1000, default='n/a')
+    cancel_if_activated = models.CharField(max_length=1000, default='n/a')
+    admin_refund_method = models.CharField(max_length=1000, default='n/a')
+    second_tier_notes = models.CharField(max_length=1000, default='n/a')
 
 
     def __str__(self):
